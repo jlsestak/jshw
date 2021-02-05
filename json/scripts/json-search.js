@@ -62,18 +62,23 @@ function match() {
     //parse the JSON string
     let obj = JSON.parse(string);
 
+
     //loops through parse JSON string to see if the name matches
     //the name the user is searching for
     for (let i = 0; i < 5; i++) {
-        if (obj.people[i].Name.toUpperCase().includes(name)) {
+        if (obj.people[i].Name.toUpperCase().includes(name) && name !== "") {
             answer += "Name: " + obj.people[i].Name + "<br>"
                 + "Sex: " + obj.people[i].Sex + "<br>"
                 + "Born: " + obj.people[i].Born + "<br>"
                 + "Died: " + obj.people[i].Died + "<br>"
                 + "Father: " + obj.people[i].Father + "<br>"
                 + "Mother: " + obj.people[i].Mother + "<br>" + "<br>";
+
         }
-    }       //if no name is found lets user know
+
+    }
+
+    //if no name is found lets user know
     if (answer === "") {
         answer = "No person found.";
     }
